@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EDE8D0"
+    tools:context=".CrearCuenta">
+
+    <ImageButton
+        android:id="@+id/btn_regresar"
+        android:layout_width="68dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="16dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Regresar"
+        android:src="@drawable/flecha_izq"
+        app:layout_constraintStart_toStartOf="@+id/text_perfil"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_perfil"
+        android:layout_width="200dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="168dp"
+        android:layout_marginTop="30dp"
+        android:text="Perfil"
+        android:textColor="#000000"
+        android:textSize="32sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="8dp"
+        android:contentDescription="@string/logo_description"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_launcher_foreground"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/input_usuario"
+        android:layout_width="411dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="129dp"
+        android:background="@drawable/rectangulo"
+        android:hint="Cambiar nombre de usuario"
+        android:padding="8dp"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/input_nombre"
+        android:layout_width="411dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="209dp"
+        android:background="@drawable/rectangulo"
+        android:hint="Cambiar nombre"
+        android:padding="8dp"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/input_apellido"
+        android:layout_width="411dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="290dp"
+        android:background="@drawable/rectangulo"
+        android:hint="Cambiar apellido"
+        android:padding="8dp"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/input_correo"
+        android:layout_width="411dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="373dp"
+        android:layout_marginBottom="310dp"
+        android:background="@drawable/rectangulo"
+        android:hint="Cambiar correo"
+        android:padding="8dp"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/input_contrasena"
+        android:layout_width="411dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="231dp"
+        android:background="@drawable/rectangulo"
+        android:hint="Cambiar contraseña"
+        android:padding="8dp"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/guardar"
+        android:layout_width="347dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="36dp"
+        android:background="#000000"
+        android:fontFamily="sans-serif"
+        android:text="Guardar"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
