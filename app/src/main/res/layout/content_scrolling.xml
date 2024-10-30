@@ -133,23 +133,4 @@
         app:srcCompat="@drawable/image_17" />
 
 
-    <RelativeLayout
-        android:id="@+id/barra_inferior"
-        android:layout_width="407dp"
-        android:layout_height="96dp"
-        android:layout_alignParentBottom="true"
-        android:background="@color/dark_gray"
-        tools:layout_editor_absoluteX="20dp"
-        tools:layout_editor_absoluteY="1262dp">
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="Contenido de la Barra Inferior"
-            android:textColor="#FFFFFF" />
-
-    </RelativeLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

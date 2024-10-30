@@ -12,15 +12,13 @@
         android:id="@+id/btn_regresar"
         android:layout_width="68dp"
         android:layout_height="48dp"
-        android:layout_marginStart="184dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="Regresar"
         android:src="@drawable/flecha_izq"
-        app:layout_constraintBottom_toTopOf="@+id/input_nombre"
-        app:layout_constraintStart_toStartOf="@+id/text_registrar"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/text_registrar"
@@ -41,40 +39,43 @@
         android:id="@+id/logo"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginEnd="44dp"
-        android:layout_marginBottom="96dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:contentDescription="@string/logo_description"
         android:scaleType="centerCrop"
         android:src="@mipmap/ic_launcher_foreground"
-        app:layout_constraintBottom_toTopOf="@+id/input_nombre"
-        app:layout_constraintEnd_toStartOf="@+id/text_registrar"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/input_nombre"
-        android:layout_width="411dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="496dp"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="58dp"
         android:background="@drawable/rectangulo"
         android:hint="Nombre"
+        android:inputType="text"
         android:padding="8dp"
         android:textColor="@android:color/black"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_registrar" />
 
     <EditText
         android:id="@+id/input_apellido"
         android:layout_width="0dp"
         android:layout_height="48dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="44dp"
         android:background="@drawable/rectangulo"
         android:hint="Apellido"
+        android:inputType="text"
         android:padding="8dp"
         android:textColor="@android:color/black"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/input_nombre" />
 
@@ -82,13 +83,15 @@
         android:id="@+id/input_correo"
         android:layout_width="0dp"
         android:layout_height="48dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="44dp"
         android:background="@drawable/rectangulo"
         android:hint="Correo"
+        android:inputType="textEmailAddress"
         android:padding="8dp"
         android:textColor="@android:color/black"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/input_apellido" />
 
@@ -96,13 +99,15 @@
         android:id="@+id/input_usuario"
         android:layout_width="0dp"
         android:layout_height="48dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="44dp"
         android:background="@drawable/rectangulo"
         android:hint="Nombre de usuario"
+        android:inputType="text"
         android:padding="8dp"
         android:textColor="@android:color/black"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/input_correo" />
 
@@ -110,9 +115,10 @@
         android:id="@+id/input_contrasena"
         android:layout_width="0dp"
         android:layout_height="48dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="44dp"
         android:background="@drawable/rectangulo"
         android:hint="Contraseña"
+        android:inputType="textPassword"
         android:padding="8dp"
         android:textColor="@android:color/black"
         android:textSize="16sp"
@@ -138,6 +144,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 
 

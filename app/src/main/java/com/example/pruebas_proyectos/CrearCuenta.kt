@@ -3,6 +3,7 @@ package com.example.pruebas_proyectos
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -29,5 +30,15 @@ class CrearCuenta : AppCompatActivity() {
             startActivity(intent)
             finish() // Opcional: cerrar esta actividad para que no esté en el stack
         }
+
+        // Configuración del botón Entrar para redirigir a Inicio
+        val btnEntrar = findViewById<TextView>(R.id.entrar)
+        btnEntrar.setOnClickListener {
+            // Abrir Inicio
+            val intent = Intent(this, Inicio::class.java)
+            startActivity(intent)
+            finish() // Opcional: cerrar esta actividad para que no esté en el stack
+        }
     }
 }
+
