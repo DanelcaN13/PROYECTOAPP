@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1062763339537",
+    "project_id": "consapps-5f58a",
+    "storage_bucket": "consapps-5f58a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1062763339537:android:7ed995ec339c32a50f36b0",
+        "android_client_info": {
+          "package_name": "com.example.pruebas_proyectos"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwrntWP-hj9jY7yCFfZvcHKfiCygkisOQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

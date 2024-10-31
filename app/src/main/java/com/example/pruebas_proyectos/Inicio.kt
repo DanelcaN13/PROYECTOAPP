@@ -22,9 +22,6 @@ class Inicio : AppCompatActivity() {
             insets
         }
 
-        // Crear una instancia de MyDatabaseHelper
-        val dbHelper = MyDatabaseHelper(this)
-
         // Configurar el evento de clic para el botón "Regresar"
         val btnRegresar = findViewById<TextView>(R.id.regresar)
         btnRegresar.setOnClickListener {
@@ -36,23 +33,35 @@ class Inicio : AppCompatActivity() {
 
         // Configurar el evento de clic para el botón "Ingresar"
         val btnIngresar = findViewById<TextView>(R.id.ingresar) // Usa TextView o Button según tu elección
-        val editTextUsuario = findViewById<EditText>(R.id.input_field) // Asegúrate de tener un EditText en tu layout para el nombre de usuario
+        val editTextUsuario = findViewById<EditText>(R.id.input_field) // Asegúrate de tener un EditText para el nombre de usuario
+        val editTextContrasena = findViewById<EditText>(R.id.input_field_password) // Asegúrate de tener un EditText para la contraseña
 
         btnIngresar.setOnClickListener {
-            // Obtener el nombre de usuario ingresado
-            val usuario = editTextUsuario.text.toString()
+            // Obtener el nombre de usuario y la contraseña ingresados
+            val usuario = editTextUsuario.text.toString().trim()
+            val contrasena = editTextContrasena.text.toString().trim()
 
-            // Verificar si el usuario existe
-            if (dbHelper.verificarUsuario(usuario)) {
-                // El usuario existe
-                // Aquí puedes manejar el caso (ej., ir a CaraPublico)
-                val intent = Intent(this, CaraPublico::class.java)
-                startActivity(intent)
+            // Validar el nombre de usuario y la contraseña
+            if (usuario.isEmpty() || contrasena.isEmpty()) {
+                Toast.makeText(this, "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show()
             } else {
-                // El usuario no existe
-                // Aquí puedes manejar el caso (ej., mostrar un mensaje de error)
-                Toast.makeText(this, "El usuario no existe. Por favor verifica tus datos.", Toast.LENGTH_SHORT).show()
+                // Usa el callback de iniciarSesion
+                Crearbd.iniciarSesion(usuario, contrasena) { success ->
+                    if (success) {
+                        // Inicio de sesión exitoso
+                        val intent = Intent(this, CaraPublico::class.java)
+                        startActivity(intent)
+                    } else {
+                        // Credenciales incorrectas
+                        Toast.makeText(this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show()
+                    }
+                }
             }
         }
+    }
+
+    // Función para mostrar errores como mensajes emergentes (Toast)
+    private fun mostrarError(mensaje: String) {
+        Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show()
     }
 }
