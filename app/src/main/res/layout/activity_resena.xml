@@ -158,6 +158,6 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/a_logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

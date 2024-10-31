@@ -18,7 +18,7 @@ class CaraPublico : AppCompatActivity() {
         // Configurar el evento de clic para el botón "Regresar"
         binding.btnRegresar.setOnClickListener {
             // Intent para volver a la actividad ResGuardados
-            val intent = Intent(this, ResGuardado::class.java) // Cambiado a ResGuardados
+            val intent = Intent(this, ResGuardado::class.java)
             startActivity(intent)
             finish() // Cerrar esta actividad para que no esté en el stack
         }

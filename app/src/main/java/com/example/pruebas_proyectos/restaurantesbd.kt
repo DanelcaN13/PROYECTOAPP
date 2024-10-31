@@ -9,7 +9,7 @@ class RestauranteManager {
         var idRestaurante: String = "",   // ID del restaurante
         var nombre: String,                // Nombre del restaurante
         var direccion: String,             // Dirección del restaurante
-        var calificacion: String            // Calificación del restaurante
+        var calificacion: Int              // Calificación del restaurante
     )
 
     companion object {
@@ -17,7 +17,7 @@ class RestauranteManager {
         private val collectionName = "restaurantes"
 
         // Método para agregar un restaurante a Firestore
-        fun agregarRestaurante(nombre: String, direccion: String, calificacion: String) {
+        fun agregarRestaurante(nombre: String, direccion: String, calificacion: Int) {
             val nuevoRestaurante = Restaurante(
                 idRestaurante = db.collection(collectionName).document().id,
                 nombre = nombre,
@@ -32,7 +32,7 @@ class RestauranteManager {
                     Log.d("Firestore", "Restaurante agregado con ID: ${nuevoRestaurante.idRestaurante}")
                 }
                 .addOnFailureListener { e ->
-                    Log.w("Firestore", "Error al agregar el restaurante", e)
+                    Log.w("Firestore", "Error al agregar el restaurante: ${e.message}", e)
                 }
         }
 
@@ -49,7 +49,7 @@ class RestauranteManager {
                     callback(restaurantes)
                 }
                 .addOnFailureListener { e ->
-                    Log.w("Firestore", "Error al obtener los restaurantes", e)
+                    Log.w("Firestore", "Error al obtener los restaurantes: ${e.message}", e)
                     callback(emptyList())
                 }
         }
@@ -68,7 +68,7 @@ class RestauranteManager {
                     }
                 }
                 .addOnFailureListener { e ->
-                    Log.w("Firestore", "Error al obtener el restaurante", e)
+                    Log.w("Firestore", "Error al obtener el restaurante: ${e.message}", e)
                     callback(null)
                 }
         }

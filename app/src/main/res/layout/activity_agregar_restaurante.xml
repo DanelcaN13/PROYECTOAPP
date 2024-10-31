@@ -6,20 +6,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EDE8D0"
-    tools:context=".CrearCuenta">
+    tools:context=".AgregarRestaurante"> <!-- Cambié a AgregarRestaurante -->
 
     <!-- Flecha para regresar -->
-
     <ImageButton
         android:id="@+id/btn_regresar"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:layout_marginStart="336dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="37dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="Regresar"
         android:src="@drawable/flecha_izq"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
@@ -30,7 +29,7 @@
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/a_logo" />
 
     <TextView
         android:id="@+id/text_agregar_restaurante"
@@ -130,12 +129,29 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:text="¿Qué calificación le das a este restaurante?"
+        android:text="¿Qué calificación le das a este restaurante? (1-5)"
         android:textColor="#000000"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_calificacion" />
+
+    <!-- Cuadro de entrada para calificación -->
+    <EditText
+        android:id="@+id/editTextCalificacion"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="@android:color/white"
+        android:hint="Calificación (1-5)"
+        android:inputType="number"
+        android:maxLength="1"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_calificacion_instruccion" />
 
     <!-- Estrellas de calificación -->
     <LinearLayout
@@ -146,7 +162,7 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_calificacion_instruccion">
+        app:layout_constraintTop_toBottomOf="@id/editTextCalificacion">
 
         <ImageView
             android:id="@+id/star_1"

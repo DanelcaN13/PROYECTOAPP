@@ -8,10 +8,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.pruebas_proyectos.databinding.ActivityResGuardadoBinding
+import com.google.firebase.firestore.FirebaseFirestore
 
 class ResGuardado : AppCompatActivity() {
 
     private lateinit var binding: ActivityResGuardadoBinding
+    private lateinit var firestore: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,6 +22,9 @@ class ResGuardado : AppCompatActivity() {
         // Inflar el layout
         binding = ActivityResGuardadoBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // Inicializar Firestore
+        firestore = FirebaseFirestore.getInstance()
 
         // Configuración para que el layout responda a los cambios en los insets
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -41,7 +46,7 @@ class ResGuardado : AppCompatActivity() {
             startActivity(intent)
         }
 
-        // Obtener los datos del restaurante y mostrarlos
+        // Obtener y mostrar los restaurantes
         mostrarRestaurante()
     }
 
@@ -51,40 +56,35 @@ class ResGuardado : AppCompatActivity() {
 
         // Verificar que el ID no sea nulo
         if (idRestaurante != null) {
-            RestauranteManager.obtenerRestaurantePorId(idRestaurante) { restaurante ->
-                // Verificar que el restaurante no sea nulo
-                if (restaurante != null) {
-                    binding.textKfc.text = restaurante.nombre // Asegúrate de que el nombre de la propiedad sea correcto
-                    binding.textDireccion.text = "Dirección: ${restaurante.direccion}"
-                    binding.textCalificacion.text = "Calificación: ${restaurante.calificacion}"
+            // Recuperar el restaurante desde Firestore
+            firestore.collection("restaurantes")
+                .document(idRestaurante)
+                .get()
+                .addOnSuccessListener { document ->
+                    if (document != null) {
+                        val nombre = document.getString("nombre") ?: "Nombre no disponible"
+                        val direccion = document.getString("direccion") ?: "Dirección no disponible"
+                        val calificacion = document.getLong("calificacion")?.toInt() ?: 0
 
-                    // Aquí puedes agregar lógica para mostrar estrellas según la calificación
-                    val calificacion = restaurante.calificacion.toIntOrNull() ?: 0
-                    mostrarEstrellas(calificacion)
-                } else {
-                    Log.d("ResGuardado", "Restaurante no encontrado con ID: $idRestaurante")
+                        binding.textKfc.text = nombre
+                        binding.textDireccion.text = "Dirección: $direccion"
+                        binding.textCalificacion.text = "Calificación: $calificacion"
+
+                        // Mostrar estrellas según la calificación
+
+                    } else {
+                        Log.d("ResGuardado", "Restaurante no encontrado con ID: $idRestaurante")
+                    }
                 }
-            }
+                .addOnFailureListener { exception ->
+                    Log.e("ResGuardado", "Error al recuperar restaurante: ${exception.message}")
+                }
         } else {
             Log.e("ResGuardado", "ID de restaurante es nulo")
         }
     }
-
-    private fun mostrarEstrellas(calificacion: Int) {
-        val estrellas = listOf(
-            binding.star1,
-            binding.star2,
-            binding.star3,
-            binding.star4,
-            binding.star5
-        )
-
-        for (i in estrellas.indices) {
-            if (i < calificacion) {
-                estrellas[i].setImageResource(R.drawable.estrella) // Cambia a la estrella llena
-            } else {
-                estrellas[i].setImageResource(R.drawable.estrella_no) // Cambia a la estrella vacía
-            }
-        }
-    }
 }
+
+
+
+
