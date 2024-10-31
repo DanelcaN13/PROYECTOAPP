@@ -36,5 +36,12 @@ class CaraPublico : AppCompatActivity() {
             val intent = Intent(this, ResGuardado::class.java)
             startActivity(intent)
         }
+
+        // Configurar el evento de clic para el botón "Agregar"
+        binding.btnAgregar.setOnClickListener {
+            // Intent para ir a la actividad AgregarRestaurante
+            val intent = Intent(this, AgregarRestaurante::class.java)
+            startActivity(intent)
+        }
     }
 }
