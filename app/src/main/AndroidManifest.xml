@@ -15,6 +15,9 @@
         android:theme="@style/Theme.Pruebas_proyectos"
         tools:targetApi="31">
         <activity
+            android:name=".Resena"
+            android:exported="false" />
+        <activity
             android:name=".ResGuardado"
             android:exported="false" />
         <activity
@@ -46,6 +49,9 @@
         <activity
             android:name=".MainActivity"
             android:exported="false" />
+
+
     </application>
+
 
 </manifest>

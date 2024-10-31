@@ -44,33 +44,41 @@ class CrearCuenta : AppCompatActivity() {
 
         // Validación de los campos cuando el botón "Entrar" es presionado
         btnEntrar.setOnClickListener {
-            if (validarNombreApellido(nombre.text.toString()) &&
-                validarNombreApellido(apellido.text.toString()) &&
-                validarCorreo(correo.text.toString()) &&
-                validarUsuario(usuario.text.toString()) &&
-                validarContrasena(contrasena.text.toString())
-            ) {
-                // Redirigir a la actividad Inicio si todos los campos son válidos
-                val intent = Intent(this, Inicio::class.java)
-                startActivity(intent)
-                finish() // Cerrar esta actividad
+            try {
+                val esNombreValido = validarNombreApellido(nombre.text.toString())
+                val esApellidoValido = validarNombreApellido(apellido.text.toString())
+                val esCorreoValido = validarCorreo(correo.text.toString())
+                val esUsuarioValido = validarUsuario(usuario.text.toString())
+                val esContrasenaValida = validarContrasena(contrasena.text.toString())
 
+                if (esNombreValido && esApellidoValido && esCorreoValido && esUsuarioValido && esContrasenaValida) {
+                    // Si todas las validaciones son exitosas, procede con el registro
+                    val textoNombre = nombre.text.toString().trim()
+                    val textoApellido = apellido.text.toString().trim()
+                    val textoCorreo = correo.text.toString().trim()
+                    val textoContrasena = contrasena.text.toString().trim()
+                    val textoUsuario = usuario.text.toString().trim()
 
+                    // Llamada a la base de datos
+                    Crearbd.agregarRegistro(
+                        textoNombre,
+                        textoApellido,
+                        textoCorreo,
+                        textoContrasena,
+                        textoUsuario
+                    )
+
+                    // Redirigir a la actividad Inicio
+                    val intent = Intent(this, Inicio::class.java)
+                    startActivity(intent)
+                    finish()
+
+                } else {
+                    mostrarError("Por favor, corrige los errores en el formulario antes de continuar.")
+                }
+            } catch (e: Exception) {
+                mostrarError("Ocurrió un error: ${e.message}")
             }
-            val textoNombre = nombre.text.toString().trim()
-            val textoApellido = apellido.text.toString().trim()
-            val textoCorreo = correo.text.toString().trim()
-            val textoContrasena = contrasena.text.toString().trim()
-            val textoUsuario = contrasena.text.toString().trim()
-
-            Crearbd.agregarRegistro(
-                textoNombre,
-                textoApellido,
-                textoCorreo,
-                textoContrasena,
-                textoUsuario
-
-            )
         }
     }
 
@@ -103,7 +111,7 @@ class CrearCuenta : AppCompatActivity() {
 
     // Función para validar la Contraseña (al menos una letra mayúscula, un número y un carácter especial)
     private fun validarContrasena(contrasena: String): Boolean {
-        val regex = Regex("^(?=.*[A-Z])(?=.*\\d)(?=.*[@#\$%^&+=!?&*().]).{8,}\$") // Caracteres especiales añadidos
+        val regex = Regex("^(?=.*[A-Z])(?=.*\\d)(?=.*[@#\$%^+=!?&*().]).{8,}\$")  // Caracteres especiales añadidos
         return if (!regex.matches(contrasena)) {
             mostrarError("La contraseña debe tener al menos una letra mayúscula, un número y un carácter especial.")
             false

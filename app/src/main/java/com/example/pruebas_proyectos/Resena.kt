@@ -6,18 +6,18 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.pruebas_proyectos.databinding.ActivityResGuardadoBinding
+import com.example.pruebas_proyectos.databinding.ActivityResenaBinding
 
-class ResGuardado : AppCompatActivity() {
+class Resena : AppCompatActivity() {
 
-    private lateinit var binding: ActivityResGuardadoBinding
+    private lateinit var binding: ActivityResenaBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
         // Inflar el layout
-        binding = ActivityResGuardadoBinding.inflate(layoutInflater)
+        binding = ActivityResenaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         // Configuración para que el layout responda a los cambios en los insets
@@ -29,15 +29,11 @@ class ResGuardado : AppCompatActivity() {
 
         // Configurar el evento de clic para el botón "Regresar"
         binding.btnRegresar.setOnClickListener {
-            val intent = Intent(this, CaraPublico::class.java)
+            val intent = Intent(this, ResGuardado::class.java) // Cambia a ResGuardado
             startActivity(intent)
-            finish()
+            finish() // Opcional: Cierra esta actividad
         }
 
-        // Configurar el evento de clic para el botón "Calificar"
-        binding.ellipse5.setOnClickListener {
-            val intent = Intent(this, Resena::class.java) // Cambia a Resena
-            startActivity(intent)
-        }
+        // Aquí puedes agregar la lógica adicional para mostrar reseñas o datos
     }
 }
