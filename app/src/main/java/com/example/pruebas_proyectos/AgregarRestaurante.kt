@@ -8,18 +8,19 @@ import android.widget.ImageButton
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class AgregarRestaurante : AppCompatActivity() {
-    private lateinit var firestore: FirebaseFirestore
+    private lateinit var database: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_agregar_restaurante)
 
-        // Inicializar Firestore
-        firestore = FirebaseFirestore.getInstance()
+        // Inicializar Firebase Database
+        database = FirebaseDatabase.getInstance().getReference("restaurantes")
 
         // Configuración del botón regresar
         val btnRegresar = findViewById<ImageButton>(R.id.btn_regresar)
@@ -55,17 +56,17 @@ class AgregarRestaurante : AppCompatActivity() {
         }
     }
 
-    // Método para agregar restaurante a Firestore
+    // Método para agregar restaurante a Firebase
     private fun agregarRestaurante(nombre: String, direccion: String, calificacion: Int) {
+        // Crear un nuevo restaurante usando .push() para generar un ID único
         val restaurante = hashMapOf(
-            "nombre" to nombre,
-            "direccion" to direccion,
-            "calificacion" to calificacion
+            "calificacion" to calificacion, // Número
+            "direccion" to direccion,         // Cadena
+            "nombre" to nombre                // Cadena
         )
 
-        // Agregar un nuevo documento en la colección "restaurantes"
-        firestore.collection("restaurantes")
-            .add(restaurante)
+        // Agregar el restaurante a la base de datos
+        database.push().setValue(restaurante)
             .addOnSuccessListener {
                 Toast.makeText(this, "Restaurante agregado", Toast.LENGTH_SHORT).show()
                 finish() // Cerrar la actividad

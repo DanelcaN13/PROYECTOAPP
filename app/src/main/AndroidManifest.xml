@@ -15,17 +15,14 @@
         android:theme="@style/Theme.Pruebas_proyectos"
         tools:targetApi="31">
         <activity
-            android:name=".EnlazarDatos"
+            android:name=".RestaurantesGuardados"
             android:exported="false" />
+
         <activity
             android:name=".AgregarRestaurante"
             android:exported="false" />
-        <activity
-            android:name=".Resena"
-            android:exported="false" />
-        <activity
-            android:name=".ResGuardado"
-            android:exported="false" />
+
+
         <activity
             android:name=".CaraPublico"
             android:exported="false"
@@ -53,5 +50,8 @@
             android:name=".MainActivity"
             android:exported="false" />
     </application>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+
 
 </manifest>

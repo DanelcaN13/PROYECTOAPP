@@ -6,6 +6,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import android.util.Log
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
@@ -22,20 +23,28 @@ class Inicio : AppCompatActivity() {
             insets
         }
 
-        // Configurar el evento de clic para el botón "Regresar"
+        Log.d("Inicio", "onCreate: activity started")
+
+        // Inicializar los botones y campos
         val btnRegresar = findViewById<TextView>(R.id.regresar)
+        val btnIngresar = findViewById<TextView>(R.id.ingresar)
+        val editTextUsuario = findViewById<EditText>(R.id.input_field)
+        val editTextContrasena = findViewById<EditText>(R.id.input_field_password)
+
+        // Verificar si los botones y campos están correctamente inicializados
+        if (btnRegresar == null || btnIngresar == null || editTextUsuario == null || editTextContrasena == null) {
+            Toast.makeText(this, "Error al inicializar vistas", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        // Configurar el evento de clic para el botón "Regresar"
         btnRegresar.setOnClickListener {
-            // Intent para volver a la actividad PaginaPrincipal
             val intent = Intent(this, PaginaPrincipal::class.java)
             startActivity(intent)
-            finish() // Cerrar esta actividad para que no esté en el stack
+            finish()
         }
 
         // Configurar el evento de clic para el botón "Ingresar"
-        val btnIngresar = findViewById<TextView>(R.id.ingresar) // Usa TextView o Button según tu elección
-        val editTextUsuario = findViewById<EditText>(R.id.input_field) // Asegúrate de tener un EditText para el nombre de usuario
-        val editTextContrasena = findViewById<EditText>(R.id.input_field_password) // Asegúrate de tener un EditText para la contraseña
-
         btnIngresar.setOnClickListener {
             // Obtener el nombre de usuario y la contraseña ingresados
             val usuario = editTextUsuario.text.toString().trim()
