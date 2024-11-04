@@ -45,37 +45,39 @@ class CrearCuenta : AppCompatActivity() {
         // Validación de los campos cuando el botón "Entrar" es presionado
         btnEntrar.setOnClickListener {
             try {
-                val esNombreValido = validarNombreApellido(nombre.text.toString())
-                val esApellidoValido = validarNombreApellido(apellido.text.toString())
-                val esCorreoValido = validarCorreo(correo.text.toString())
-                val esUsuarioValido = validarUsuario(usuario.text.toString())
-                val esContrasenaValida = validarContrasena(contrasena.text.toString())
+                // Validar cada campo secuencialmente
+                val textoNombre = nombre.text.toString().trim()
+                if (!validarNombreApellido(textoNombre)) return@setOnClickListener
 
-                if (esNombreValido && esApellidoValido && esCorreoValido && esUsuarioValido && esContrasenaValida) {
-                    // Si todas las validaciones son exitosas, procede con el registro
-                    val textoNombre = nombre.text.toString().trim()
-                    val textoApellido = apellido.text.toString().trim()
-                    val textoCorreo = correo.text.toString().trim()
-                    val textoContrasena = contrasena.text.toString().trim()
-                    val textoUsuario = usuario.text.toString().trim()
+                val textoApellido = apellido.text.toString().trim()
+                if (!validarNombreApellido(textoApellido)) return@setOnClickListener
 
-                    // Llamada a la base de datos
-                    Crearbd.agregarRegistro(
-                        textoNombre,
-                        textoApellido,
-                        textoCorreo,
-                        textoContrasena,
-                        textoUsuario
-                    )
+                val textoCorreo = correo.text.toString().trim()
+                if (!validarCorreo(textoCorreo)) return@setOnClickListener
 
-                    // Redirigir a la actividad Inicio
-                    val intent = Intent(this, Inicio::class.java)
-                    startActivity(intent)
-                    finish()
+                val textoUsuario = usuario.text.toString().trim()
+                if (!validarUsuario(textoUsuario)) return@setOnClickListener
 
-                } else {
-                    mostrarError("Por favor, corrige los errores en el formulario antes de continuar.")
-                }
+                val textoContrasena = contrasena.text.toString().trim()
+                if (!validarContrasena(textoContrasena)) return@setOnClickListener
+
+                // Si todas las validaciones son exitosas, procede con el registro
+                Crearbd.agregarRegistro(
+                    textoNombre,
+                    textoApellido,
+                    textoCorreo,
+                    textoContrasena,
+                    textoUsuario
+                )
+
+                // Mostrar mensaje de éxito
+                Toast.makeText(this, "Usuario creado exitosamente.", Toast.LENGTH_SHORT).show()
+
+                // Redirigir a la actividad Inicio
+                val intent = Intent(this, Inicio::class.java)
+                startActivity(intent)
+                finish()
+
             } catch (e: Exception) {
                 mostrarError("Ocurrió un error: ${e.message}")
             }

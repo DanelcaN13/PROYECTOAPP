@@ -33,6 +33,7 @@ class AgregarRestaurante : AppCompatActivity() {
         val nombreRestauranteEditText = findViewById<EditText>(R.id.editTextNombreRestaurante)
         val direccionRestauranteEditText = findViewById<EditText>(R.id.editTextDireccion)
         val calificacionRestauranteEditText = findViewById<EditText>(R.id.editTextCalificacion)
+        val resenaRestauranteEditText = findViewById<EditText>(R.id.editTextResena)
 
         // Botón enviar para guardar el restaurante
         val btnEnviar = findViewById<Button>(R.id.btn_enviar)
@@ -40,13 +41,14 @@ class AgregarRestaurante : AppCompatActivity() {
             val nombre = nombreRestauranteEditText.text.toString().trim()
             val direccion = direccionRestauranteEditText.text.toString().trim()
             val calificacionInput = calificacionRestauranteEditText.text.toString().trim()
+            val resena = resenaRestauranteEditText.text.toString().trim()
 
             // Validación de campos
-            if (nombre.isNotEmpty() && direccion.isNotEmpty() && calificacionInput.isNotEmpty()) {
+            if (nombre.isNotEmpty() && direccion.isNotEmpty() && calificacionInput.isNotEmpty() && resena.isNotEmpty()) {
                 val calificacion = calificacionInput.toIntOrNull()
 
                 if (calificacion != null && calificacion in 1..5) {
-                    agregarRestaurante(nombre, direccion, calificacion)
+                    agregarRestaurante(nombre, direccion, calificacion, resena)
                 } else {
                     Toast.makeText(this, "La calificación debe ser un número entre 1 y 5", Toast.LENGTH_SHORT).show()
                 }
@@ -57,12 +59,13 @@ class AgregarRestaurante : AppCompatActivity() {
     }
 
     // Método para agregar restaurante a Firebase
-    private fun agregarRestaurante(nombre: String, direccion: String, calificacion: Int) {
+    private fun agregarRestaurante(nombre: String, direccion: String, calificacion: Int, resena: String) {
         // Crear un nuevo restaurante usando .push() para generar un ID único
         val restaurante = hashMapOf(
-            "calificacion" to calificacion, // Número
-            "direccion" to direccion,         // Cadena
-            "nombre" to nombre                // Cadena
+            "nombre" to nombre,
+            "direccion" to direccion,
+            "calificacion" to calificacion,
+            "resena" to resena // Agrega la reseña
         )
 
         // Agregar el restaurante a la base de datos

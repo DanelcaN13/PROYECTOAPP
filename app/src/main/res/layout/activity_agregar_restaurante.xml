@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EDE8D0"
-    tools:context=".AgregarRestaurante"> <!-- Cambié a AgregarRestaurante -->
+    tools:context=".AgregarRestaurante">
 
     <!-- Flecha para regresar -->
     <ImageButton
@@ -131,12 +131,11 @@
         android:layout_marginEnd="16dp"
         android:text="¿Qué calificación le das a este restaurante? (1-5)"
         android:textColor="#000000"
-        android:textSize="16sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_calificacion" />
 
-    <!-- Cuadro de entrada para calificación -->
     <EditText
         android:id="@+id/editTextCalificacion"
         android:layout_width="0dp"
@@ -145,71 +144,52 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:background="@android:color/white"
-        android:hint="Calificación (1-5)"
-        android:inputType="number"
-        android:maxLength="1"
+        android:hint="Escribe una calificación"
         android:padding="8dp"
+        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_calificacion_instruccion" />
 
-    <!-- Estrellas de calificación -->
-    <LinearLayout
-        android:id="@+id/estrellas_calificacion"
+    <TextView
+        android:id="@+id/text_reseña"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Reseña"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextCalificacion" />
+
+    <EditText
+        android:id="@+id/editTextResena"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:orientation="horizontal"
+        android:layout_marginEnd="16dp"
+        android:background="@android:color/white"
+        android:hint="Escribe una reseña del restaurante"
+        android:padding="8dp"
+        android:gravity="top"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextCalificacion">
-
-        <ImageView
-            android:id="@+id/star_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="Estrella 1"
-            android:src="@drawable/star" />
-
-        <ImageView
-            android:id="@+id/star_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="Estrella 2"
-            android:src="@drawable/star" />
-
-        <ImageView
-            android:id="@+id/star_3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="Estrella 3"
-            android:src="@drawable/star" />
-
-        <ImageView
-            android:id="@+id/star_4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="Estrella 4"
-            android:src="@drawable/star" />
-
-        <ImageView
-            android:id="@+id/star_5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="Estrella 5"
-            android:src="@drawable/star" />
-    </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@id/text_reseña" />
 
     <Button
         android:id="@+id/btn_enviar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:backgroundTint="@color/black"
-        android:text="Enviar"
-        android:textColor="#FFFFFF"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/black"
+        android:text="Agregar restaurante"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/estrellas_calificacion" />
-
+        app:layout_constraintTop_toBottomOf="@id/editTextResena" />
 </androidx.constraintlayout.widget.ConstraintLayout>

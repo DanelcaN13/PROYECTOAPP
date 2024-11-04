@@ -10,14 +10,13 @@ data class MyUsers(
     val nombre: String,        // Nombre del usuario
     val apellido: String,      // Apellido del usuario
     val correo: String,        // Correo electrónico
-    val contrasena: String     // Contraseña (puedes considerar no guardar la contraseña en Firestore)
+    val contrasena: String     // Contraseña (considera no guardar la contraseña en Firestore por motivos de seguridad)
 )
 
 class Crearbd {
-
     companion object {
-        private val db = FirebaseFirestore.getInstance()
-        private val collectionName = "usuarios"
+        val db = FirebaseFirestore.getInstance()
+        const val collectionName = "usuarios"
 
         // Método para agregar un registro de usuario a Firebase Firestore
         fun agregarRegistro(nombre: String, apellido: String, correo: String, contrasena: String, usuario: String) {
@@ -31,11 +30,11 @@ class Crearbd {
                         val idUsuario = auth.currentUser?.uid ?: ""
                         val usuarioData = MyUsers(
                             idUsuario = idUsuario,
-                            usuario = usuario,   // Nombre de usuario
-                            nombre = nombre,     // Nombre
-                            apellido = apellido, // Apellido
-                            correo = correo,     // Correo
-                            contrasena = contrasena // Contraseña (evita guardar si es posible)
+                            usuario = usuario,
+                            nombre = nombre,
+                            apellido = apellido,
+                            correo = correo,
+                            contrasena = contrasena // Guardar contraseña (considera las implicaciones de seguridad)
                         )
 
                         // Guardar el usuario en Firestore
@@ -101,4 +100,3 @@ class Crearbd {
         }
     }
 }
-

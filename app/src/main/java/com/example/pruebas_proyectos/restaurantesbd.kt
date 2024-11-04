@@ -9,20 +9,22 @@ class RestauranteManager {
         var idRestaurante: String = "",   // ID del restaurante
         var nombre: String,                // Nombre del restaurante
         var direccion: String,             // Dirección del restaurante
-        var calificacion: Int              // Calificación del restaurante
-    )
+        var calificacion: Int,             // Calificación del restaurante
+        var resena: String,                // Comentario del restaurante
+        )
 
     companion object {
         private val db = FirebaseFirestore.getInstance()
         private val collectionName = "restaurantes"
 
         // Método para agregar un restaurante a Firestore
-        fun agregarRestaurante(nombre: String, direccion: String, calificacion: Int) {
+        fun agregarRestaurante(nombre: String, direccion: String, calificacion: Int, resena: String) {
             val nuevoRestaurante = Restaurante(
                 idRestaurante = db.collection(collectionName).document().id,
                 nombre = nombre,
                 direccion = direccion,
-                calificacion = calificacion
+                calificacion = calificacion,
+                resena = resena
             )
 
             // Guardar el restaurante en Firestore

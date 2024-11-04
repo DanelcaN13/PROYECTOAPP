@@ -44,90 +44,77 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Campo para la contraseña actual -->
+
     <EditText
         android:id="@+id/input_usuario"
         android:layout_width="411dp"
         android:layout_height="48dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="36dp"
+        android:layout_marginTop="79dp"
         android:background="@drawable/rectangulo"
         android:hint="Cambiar nombre de usuario"
         android:padding="8dp"
         android:textColor="@android:color/black"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/input_nombre"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_perfil" />
 
     <EditText
         android:id="@+id/input_nombre"
         android:layout_width="411dp"
         android:layout_height="48dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="36dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/rectangulo"
         android:hint="Cambiar nombre"
         android:padding="8dp"
         android:textColor="@android:color/black"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/input_apellido"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_usuario" />
 
     <EditText
         android:id="@+id/input_apellido"
         android:layout_width="411dp"
         android:layout_height="48dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="36dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/rectangulo"
         android:hint="Cambiar apellido"
         android:padding="8dp"
         android:textColor="@android:color/black"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/input_correo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_nombre" />
 
     <EditText
-        android:id="@+id/input_correo"
+        android:id="@+id/input_contrasena_actual"
         android:layout_width="411dp"
         android:layout_height="48dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="267dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/rectangulo"
-        android:hint="Cambiar correo"
+        android:hint="Contraseña actual"
         android:padding="8dp"
         android:textColor="@android:color/black"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_apellido" />
 
     <EditText
         android:id="@+id/input_contrasena"
         android:layout_width="411dp"
         android:layout_height="48dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/rectangulo"
         android:hint="Cambiar contraseña"
         android:padding="8dp"
         android:textColor="@android:color/black"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/input_correo" />
+        app:layout_constraintTop_toBottomOf="@+id/input_contrasena_actual" />
 
     <TextView
         android:id="@+id/guardar"
@@ -145,5 +132,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 

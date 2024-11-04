@@ -37,14 +37,6 @@ class RestaurantesGuardados : AppCompatActivity() {
         binding.recyclerViewRestaurantes.adapter = restauranteAdapter
         binding.recyclerViewRestaurantes.layoutManager = LinearLayoutManager(this)
 
-        // Probar con datos fijos
-        val testRestaurants = listOf(
-            Restaurante("Restaurante 1", "Dirección 1", 4.5f),
-            Restaurante("Restaurante 2", "Dirección 2", 3.0f),
-            Restaurante("Restaurante 3", "Dirección 3", 5.0f)
-        )
-        listaRestaurantes.addAll(testRestaurants) // Agregar los restaurantes de prueba a la lista
-        restauranteAdapter.notifyDataSetChanged() // Notificar al adaptador que los datos han cambiado
 
         // Obtener los restaurantes desde Firebase
         obtenerRestaurantes()

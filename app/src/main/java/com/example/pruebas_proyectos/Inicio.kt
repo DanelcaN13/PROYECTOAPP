@@ -54,12 +54,15 @@ class Inicio : AppCompatActivity() {
             if (usuario.isEmpty() || contrasena.isEmpty()) {
                 Toast.makeText(this, "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show()
             } else {
+                Log.d("Inicio", "Intentando iniciar sesión con usuario: $usuario")
                 // Usa el callback de iniciarSesion
                 Crearbd.iniciarSesion(usuario, contrasena) { success ->
                     if (success) {
                         // Inicio de sesión exitoso
+                        Log.d("Inicio", "Inicio de sesión exitoso para el usuario: $usuario")
                         val intent = Intent(this, CaraPublico::class.java)
                         startActivity(intent)
+                        finish()
                     } else {
                         // Credenciales incorrectas
                         Toast.makeText(this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show()
