@@ -2,10 +2,7 @@ package com.example.pruebas_proyectos
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.pruebas_proyectos.databinding.ActivityRevisarOfertasBinding
 
 class RevisarOfertas : AppCompatActivity() {
@@ -14,27 +11,37 @@ class RevisarOfertas : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-
-        // Inflar el layout y configurar el binding
         binding = ActivityRevisarOfertasBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Configurar insets para la vista principal
-        ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+        // Obtener el rango de precios del Intent
+        val rangoPrecios = intent.getStringExtra("RANGO_PRECIOS")
+
+        // Configurar las ofertas basadas en el rango de precios
+        when (rangoPrecios) {
+            "$10,000 - $20,000" -> {
+                mostrarOferta("PPC", rangoPrecios)
+            }
+            "$20,000 - $30,000" -> {
+                mostrarOferta("KFC", rangoPrecios)
+            }
+            else -> {
+                // Opción por defecto o mensaje de error si es necesario
+                binding.textRangoPrecio.text = "No hay ofertas para este rango de precios."
+            }
         }
 
-        // Configurar el evento de clic para el botón "Regresar"
+        // Configuración del botón de regresar
         binding.btnRegresar.setOnClickListener {
-            val intent = Intent(this, Descuentos::class.java)
+            val intent = Intent(this, CaraPublico::class.java)
             startActivity(intent)
+            finish()
         }
+    }
 
-        // Obtener el rango de precios enviado desde RangoPrecios
-        val rangoSeleccionado = intent.getStringExtra("RANGO_PRECIOS")
-        binding.textRangoPrecio.text = "Rango de precios seleccionado: $rangoSeleccionado" // Mostrar el rango seleccionado
+    private fun mostrarOferta(nombreRestaurante: String, rangoPrecios: String) {
+        binding.textOfertasrrevisadas.text = "Ofertas de $nombreRestaurante"
+        binding.textRangoPrecio.text = "Rango de precios seleccionado: $rangoPrecios"
+        // Aquí puedes personalizar aún más los elementos visuales para mostrar detalles adicionales
     }
 }

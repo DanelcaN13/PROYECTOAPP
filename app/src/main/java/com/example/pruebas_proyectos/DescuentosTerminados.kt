@@ -6,18 +6,18 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.pruebas_proyectos.databinding.ActivityDescuentosBinding
+import com.example.pruebas_proyectos.databinding.ActivityDescuentosTerminadosBinding
 
-class Descuentos : AppCompatActivity() {
+class DescuentosTerminados : AppCompatActivity() {
 
-    private lateinit var binding: ActivityDescuentosBinding
+    private lateinit var binding: ActivityDescuentosTerminadosBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
         // Inflar el layout y configurar el binding
-        binding = ActivityDescuentosBinding.inflate(layoutInflater)
+        binding = ActivityDescuentosTerminadosBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         // Configurar insets para la vista principal
@@ -29,17 +29,9 @@ class Descuentos : AppCompatActivity() {
 
         // Configurar el evento de clic para el botón "Regresar"
         binding.btnRegresar.setOnClickListener {
-            // Redirigir a la actividad anterior o a una actividad deseada
-            finish() // Si deseas que cierre esta actividad y regrese a la anterior
-        }
-
-        // Configurar el evento de clic para el botón "Revisar Ofertas"
-        binding.btnRevisarOpinion.setOnClickListener {
-            val intent = Intent(this, DescuentosTerminados::class.java) // Cambiar aquí
-            startActivity(intent) // Cambiar a DescuentosTerminados
+            val intent = Intent(this, CaraPublico::class.java) // Redirigir a CaraPublico
+            startActivity(intent)
+            finish() // Opcional: cerrar la actividad actual
         }
     }
 }
-
-
-

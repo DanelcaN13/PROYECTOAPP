@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#EDE8D0"> <!-- Puedes añadir un fondo si deseas -->
+
+    <!-- Nombre del Restaurante -->
+    <TextView
+        android:id="@+id/text_nombre_restaurante"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Restaurante"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <!-- Rango de Precios -->
+    <TextView
+        android:id="@+id/text_rango_precio_oferta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rango de precios:"
+        android:textColor="#000000"
+        android:textSize="16sp" />
+</LinearLayout>
