@@ -34,21 +34,23 @@ class AgregarRestaurante : AppCompatActivity() {
         val direccionRestauranteEditText = findViewById<EditText>(R.id.editTextDireccion)
         val calificacionRestauranteEditText = findViewById<EditText>(R.id.editTextCalificacion)
         val resenaRestauranteEditText = findViewById<EditText>(R.id.editTextResena)
+        val rangoPrecioEditText = findViewById<EditText>(R.id.editTextRangoPrecio) // Campo para rango de precios
 
-        // Botón enviar para guardar el restaurante
-        val btnEnviar = findViewById<Button>(R.id.btn_enviar)
-        btnEnviar.setOnClickListener {
+        // Botón agregar restaurante para guardar el restaurante
+        val btnAgregarRestaurante = findViewById<Button>(R.id.button2) // Correcto: btn_agregar_restaurante
+        btnAgregarRestaurante.setOnClickListener {
             val nombre = nombreRestauranteEditText.text.toString().trim()
             val direccion = direccionRestauranteEditText.text.toString().trim()
             val calificacionInput = calificacionRestauranteEditText.text.toString().trim()
             val resena = resenaRestauranteEditText.text.toString().trim()
+            val rangoPrecio = rangoPrecioEditText.text.toString().trim() // Obtener rango de precios
 
             // Validación de campos
-            if (nombre.isNotEmpty() && direccion.isNotEmpty() && calificacionInput.isNotEmpty() && resena.isNotEmpty()) {
+            if (nombre.isNotEmpty() && direccion.isNotEmpty() && calificacionInput.isNotEmpty() && resena.isNotEmpty() && rangoPrecio.isNotEmpty()) {
                 val calificacion = calificacionInput.toIntOrNull()
 
                 if (calificacion != null && calificacion in 1..5) {
-                    agregarRestaurante(nombre, direccion, calificacion, resena)
+                    agregarRestaurante(nombre, direccion, calificacion, resena, rangoPrecio) // Pasar rango de precios
                 } else {
                     Toast.makeText(this, "La calificación debe ser un número entre 1 y 5", Toast.LENGTH_SHORT).show()
                 }
@@ -59,13 +61,14 @@ class AgregarRestaurante : AppCompatActivity() {
     }
 
     // Método para agregar restaurante a Firebase
-    private fun agregarRestaurante(nombre: String, direccion: String, calificacion: Int, resena: String) {
+    private fun agregarRestaurante(nombre: String, direccion: String, calificacion: Int, resena: String, rangoPrecio: String) {
         // Crear un nuevo restaurante usando .push() para generar un ID único
         val restaurante = hashMapOf(
             "nombre" to nombre,
             "direccion" to direccion,
             "calificacion" to calificacion,
-            "resena" to resena // Agrega la reseña
+            "resena" to resena, // Agrega la reseña
+            "rangoPrecio" to rangoPrecio // Agregar rango de precios
         )
 
         // Agregar el restaurante a la base de datos

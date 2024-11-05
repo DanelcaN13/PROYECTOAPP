@@ -1,6 +1,7 @@
 package com.example.pruebas_proyectos
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -37,7 +38,6 @@ class RestaurantesGuardados : AppCompatActivity() {
         binding.recyclerViewRestaurantes.adapter = restauranteAdapter
         binding.recyclerViewRestaurantes.layoutManager = LinearLayoutManager(this)
 
-
         // Obtener los restaurantes desde Firebase
         obtenerRestaurantes()
 
@@ -55,6 +55,9 @@ class RestaurantesGuardados : AppCompatActivity() {
                     val restaurante = restauranteSnapshot.getValue(Restaurante::class.java)
                     if (restaurante != null) {
                         listaRestaurantes.add(restaurante) // Agregar el restaurante a la lista
+                        Log.d("FirebaseData", "Restaurante: ${restaurante.nombre}, Rango Precio: ${restaurante.rangoPrecio}") // Depuración
+                    } else {
+                        Log.e("FirebaseData", "Error: Restaurante es nulo")
                     }
                 }
                 restauranteAdapter.notifyDataSetChanged() // Notificar al adaptador que los datos han cambiado
@@ -62,8 +65,11 @@ class RestaurantesGuardados : AppCompatActivity() {
 
             override fun onCancelled(error: DatabaseError) {
                 // Manejar errores aquí
+                Log.e("FirebaseData", "Error al obtener datos: ${error.message}")
             }
         })
     }
 }
+
+
 

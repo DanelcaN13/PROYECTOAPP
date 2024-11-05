@@ -32,5 +32,9 @@ class RevisarOfertas : AppCompatActivity() {
             val intent = Intent(this, Descuentos::class.java)
             startActivity(intent)
         }
+
+        // Obtener el rango de precios enviado desde RangoPrecios
+        val rangoSeleccionado = intent.getStringExtra("RANGO_PRECIOS")
+        binding.textRangoPrecio.text = "Rango de precios seleccionado: $rangoSeleccionado" // Mostrar el rango seleccionado
     }
 }

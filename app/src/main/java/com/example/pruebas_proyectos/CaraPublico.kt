@@ -42,6 +42,11 @@ class CaraPublico : AppCompatActivity() {
             val intent = Intent(this, Descuentos::class.java)
             startActivity(intent)
         }
+
+        // Configurar el evento de clic para el botón "Rango"
+        binding.btnRango.setOnClickListener {
+            val intent = Intent(this, RangoPrecios::class.java)
+            startActivity(intent)
+        }
     }
 }
-

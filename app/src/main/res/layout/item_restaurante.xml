@@ -14,7 +14,6 @@
         android:textSize="18sp"
         android:textStyle="bold" />
 
-
     <TextView
         android:id="@+id/direccionRestaurante"
         android:layout_width="wrap_content"
@@ -34,6 +33,13 @@
         android:id="@+id/editTextResena"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
+        android:text="Reseña del Restaurante"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/rangoPreciosRestaurante"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rango de Precios"
         android:textSize="14sp" />
 </LinearLayout>
