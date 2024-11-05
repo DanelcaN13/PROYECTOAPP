@@ -5,5 +5,11 @@ data class Restaurante(
     val direccion: String = "",
     val calificacion: Float = 0f,
     val resena: String = "",
-    val rangoPrecio: String = "" // Cambia este nombre si es necesario
+    val rangoPrecio: String = ""
+)
+
+data class Usuario(
+    val id: String = "",
+    val nombre: String = "",
+    val restaurantesFavoritos: List<String> = listOf() // Lista de IDs de restaurantes favoritos
 )

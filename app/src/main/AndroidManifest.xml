@@ -16,6 +16,11 @@
         android:theme="@style/Theme.Pruebas_proyectos"
         tools:targetApi="31">
         <activity
+            android:name=".RestaurantesFavoritosAdapter"
+            android:exported="false" />
+        <activity android:name=".Favoritos" />
+
+        <activity
             android:name=".DescuentosTerminados"
             android:exported="false" />
         <activity
