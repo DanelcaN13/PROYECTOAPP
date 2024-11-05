@@ -16,13 +16,12 @@ class CaraPublico : AppCompatActivity() {
 
         // Configurar el evento de clic para el botón "Regresar"
         binding.btnRegresar.setOnClickListener {
-            finish() // O usa Intent si necesitas volver a una actividad específica
+            finish()
         }
 
         // Configurar el evento de clic para el logo
         binding.logo.setOnClickListener {
-            // Intent para ir a la actividad Perfil
-            val intent = Intent(this, Perfil::class.java) // Asegúrate de que el nombre sea correcto
+            val intent = Intent(this, Perfil::class.java)
             startActivity(intent)
         }
 
@@ -37,5 +36,12 @@ class CaraPublico : AppCompatActivity() {
             val intent = Intent(this, AgregarRestaurante::class.java)
             startActivity(intent)
         }
+
+        // Configurar el evento de clic para el botón "Descuentos"
+        binding.btnDescuentos.setOnClickListener {
+            val intent = Intent(this, Descuentos::class.java)
+            startActivity(intent)
+        }
     }
 }
+
