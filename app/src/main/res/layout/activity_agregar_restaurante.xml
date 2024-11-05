@@ -40,6 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:fontFamily="@font/kavoon"
             android:text="Agregar\nrestaurante"
             android:textColor="#000000"
             android:textSize="32sp"
@@ -56,6 +57,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:text="En esta parte danos la información sobre el restaurante"
+            android:textAlignment="center"
             android:textColor="#000000"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -71,6 +73,7 @@
             android:text="Nombre de restaurante"
             android:textColor="#000000"
             android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text_instrucciones" />
 
@@ -97,6 +100,7 @@
             android:text="Dirección"
             android:textColor="#000000"
             android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/editTextNombreRestaurante" />
 
@@ -123,6 +127,7 @@
             android:text="Calificación"
             android:textColor="#000000"
             android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/editTextDireccion" />
 
@@ -164,6 +169,7 @@
             android:text="Reseña"
             android:textColor="#000000"
             android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/editTextCalificacion" />
 
@@ -192,6 +198,7 @@
             android:text="Rango de precios (ej: 20000-30000)"
             android:textColor="#000000"
             android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/editTextResena" />
 
@@ -213,6 +220,8 @@
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/black"
             android:text="Agregar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EDE8D0">
@@ -20,32 +21,38 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Logo -->
+
+    <!-- Título -->
+
     <ImageView
         android:id="@+id/logo"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginTop="4dp"
-        android:layout_marginEnd="328dp"
         android:contentDescription="@string/logo_description"
         android:scaleType="centerCrop"
         android:src="@mipmap/ic_launcher_foreground"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.048"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Título -->
+    <!-- RecyclerView para mostrar la lista de restaurantes -->
+
     <TextView
         android:id="@+id/titulo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_width="216dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/kavoon"
         android:text="Restaurantes"
         android:textColor="#000000"
         android:textSize="36sp"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.641"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- RecyclerView para mostrar la lista de restaurantes -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewRestaurantes"
         android:layout_width="0dp"

@@ -23,5 +23,6 @@
         android:layout_height="wrap_content"
         android:text="Rango de precios:"
         android:textColor="#000000"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:textStyle="bold" />
 </LinearLayout>
