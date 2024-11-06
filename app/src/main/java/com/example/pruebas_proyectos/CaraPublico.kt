@@ -48,11 +48,7 @@ class CaraPublico : AppCompatActivity() {
             val intent = Intent(this, RangoPrecios::class.java)
             startActivity(intent)
         }
-
-        // Configurar el evento de clic para el botón "Favoritos"
-        binding.btnFavoritos.setOnClickListener {
-            val intent = Intent(this, Favoritos::class.java)
-            startActivity(intent)
-        }
     }
 }
+
+
