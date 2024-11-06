@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Fuerza el uso de la librería a pesar de la incompatibilidad de minSdk -->
+    <uses-sdk
+        android:minSdkVersion="24"
+        android:targetSdkVersion="34"
+        tools:overrideLibrary="com.android.car.ui" />
+
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -18,10 +24,7 @@
         <activity
             android:name=".FavoritosSemanales"
             android:exported="false" />
-        <activity
-            android:name=".RestaurantesFavoritosAdapter"
-            android:exported="false" />
-        <activity android:name=".Favoritos" />
+
         <activity
             android:name=".DescuentosTerminados"
             android:exported="false" />

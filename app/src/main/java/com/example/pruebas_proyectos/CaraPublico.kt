@@ -2,17 +2,21 @@ package com.example.pruebas_proyectos
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import com.example.pruebas_proyectos.databinding.ActivityCaraPublicoBinding
 
-class CaraPublico : AppCompatActivity() {
+class CaraPublico : BaseActivity() {
 
     private lateinit var binding: ActivityCaraPublicoBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Configurar el binding
         binding = ActivityCaraPublicoBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // Configurar la barra de navegación
+        setupBottomNavigation(binding.bottomNavigation)
 
         // Configurar el evento de clic para el botón "Regresar"
         binding.btnRegresar.setOnClickListener {
@@ -51,8 +55,9 @@ class CaraPublico : AppCompatActivity() {
 
         // Configurar el evento de clic para el botón "Semanales"
         binding.btnSemanales.setOnClickListener {
-            val intent = Intent(this, FavoritosSemanales::class.java)  // Cambiar a FavoritosSemanales
+            val intent = Intent(this, FavoritosSemanales::class.java)
             startActivity(intent)
         }
     }
 }
+

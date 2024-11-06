@@ -36,8 +36,8 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="134dp"
-        android:layout_height="140dp"
+        android:layout_width="104dp"
+        android:layout_height="103dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:contentDescription="@string/logo_description"

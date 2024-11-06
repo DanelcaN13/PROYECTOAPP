@@ -39,11 +39,14 @@
         <!-- Botón de favorito -->
         <ImageButton
             android:id="@+id/btn_favorito"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/estrella"
-        android:contentDescription="Favorito"
-        android:layout_gravity="end"/>
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/a_logo"
+            android:contentDescription="Favorito"
+            android:layout_gravity="end"
+            android:background="@drawable/oval_background"
+            android:scaleType="centerCrop" />
+
 
     </LinearLayout>
 

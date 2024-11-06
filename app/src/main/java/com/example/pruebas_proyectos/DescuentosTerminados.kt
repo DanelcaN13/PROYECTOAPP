@@ -33,5 +33,28 @@ class DescuentosTerminados : AppCompatActivity() {
             startActivity(intent)
             finish() // Opcional: cerrar la actividad actual
         }
+
+        // Configurar la barra de navegación inferior
+        binding.bottomNavigation.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_home -> {
+                    // Navegar a CaraPublico
+                    startActivity(Intent(this, CaraPublico::class.java))
+                    true
+                }
+                R.id.nav_favorites -> {
+                    // Navegar a Favoritos Semanales
+                    startActivity(Intent(this, FavoritosSemanales::class.java))
+                    true
+                }
+                R.id.nav_profile -> {
+                    // Navegar a Perfil
+                    startActivity(Intent(this, Perfil::class.java))
+                    true
+                }
+                else -> false
+            }
+        }
     }
 }
+

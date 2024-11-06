@@ -40,7 +40,7 @@ class RevisarOfertas : AppCompatActivity() {
     }
 
     private fun mostrarOferta(nombreRestaurante: String, rangoPrecios: String) {
-        binding.textOfertasrrevisadas.text = "Ofertas de $nombreRestaurante"
+        binding.textOfertasrrevisadas.text = "Podrias gastar en $nombreRestaurante"
         binding.textRangoPrecio.text = "Rango de precios seleccionado: $rangoPrecios"
         // Aquí puedes personalizar aún más los elementos visuales para mostrar detalles adicionales
     }

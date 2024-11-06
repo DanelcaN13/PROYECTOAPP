@@ -51,7 +51,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-auth'
     implementation 'com.google.firebase:firebase-database-ktx' // Asegúrate de tener esta línea
-    implementation 'com.google.firebase:firebase-firestore-ktx' // Incluye Firestore si lo necesitas
+    implementation 'com.google.firebase:firebase-firestore-ktx'
+    implementation libs.car.ui.lib// Incluye Firestore si lo necesitas
 
     // Testing
     testImplementation libs.junit
