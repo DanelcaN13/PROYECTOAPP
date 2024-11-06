@@ -202,12 +202,12 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView7" />
 
         <Button
-            android:id="@+id/btnFavoritos"
+            android:id="@+id/btnSemanales"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:backgroundTint="@color/black"
-            android:text="Favoritos"
+            android:text="Semanales"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"

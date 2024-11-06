@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:elevation="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Nombre del restaurante -->
+        <TextView
+            android:id="@+id/textViewNombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre Restaurante"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <!-- Dirección del restaurante -->
+        <TextView
+            android:id="@+id/textViewDireccion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dirección del restaurante"
+            android:textSize="14sp"/>
+
+        <!-- Calificación del restaurante -->
+        <TextView
+            android:id="@+id/textViewCalificacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Calificación: 4"
+            android:textSize="14sp"/>
+
+        <!-- Botón de favorito -->
+        <ImageButton
+            android:id="@+id/btn_favorito"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/estrella"
+        android:contentDescription="Favorito"
+        android:layout_gravity="end"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
+

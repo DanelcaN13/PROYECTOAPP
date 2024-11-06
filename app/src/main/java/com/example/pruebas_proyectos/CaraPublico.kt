@@ -48,7 +48,11 @@ class CaraPublico : AppCompatActivity() {
             val intent = Intent(this, RangoPrecios::class.java)
             startActivity(intent)
         }
+
+        // Configurar el evento de clic para el botón "Semanales"
+        binding.btnSemanales.setOnClickListener {
+            val intent = Intent(this, FavoritosSemanales::class.java)  // Cambiar a FavoritosSemanales
+            startActivity(intent)
+        }
     }
 }
-
-
